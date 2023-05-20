@@ -10,9 +10,17 @@ return {
     },
     routes = {
       {
-        filter = { error = true, find = "error drawing label for" },
+        filter = {
+          any = {
+            { error = true, find = "error drawing label for" },
+            { error = true, find = "to set cursor for log window" },
+          },
+        },
         opts = { skip = true },
       },
+    },
+    presets = {
+      lsp_doc_border = true,
     },
   },
 }

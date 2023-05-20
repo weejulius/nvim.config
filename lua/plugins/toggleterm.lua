@@ -15,10 +15,10 @@ end
 return {
   "akinsho/toggleterm.nvim",
   lazy = false,
-  enabled = false,
+  enabled = true,
   version = "*",
-  ft = "dart",
   keys = {
     { "<leader>c0", "<cmd>lua term_flutter_buildrunner()<CR>", desc = "flutter:build runner" },
   },
+  config = true,
 }
