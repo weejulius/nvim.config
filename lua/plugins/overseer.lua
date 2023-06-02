@@ -47,7 +47,20 @@ vim.api.nvim_create_user_command("ZigTest", function()
       zig_test_filter = choice
     end
     local filter = '"' .. zig_test_filter .. '"'
-    local args = { "test", "--test-filter", filter, file, "-femit-bin=test" }
+    local args = {
+      "test",
+      "--test-filter",
+      filter,
+      file,
+      "-femit-bin=test",
+      "-freference-trace",
+      "-lc",
+      "-lpq",
+      "-L",
+      "/usr/local/opt/postgresql@14/lib/postgresql@14",
+      "-I",
+      "/usr/local/include/postgresql@14/",
+    }
     local async = require("plenary.async")
     async.run(function()
       overseer.run_template({
